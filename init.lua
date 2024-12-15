@@ -11,6 +11,13 @@ early_loading.init()
 -- Load core module.
 require("core")
 
+-- Load editor configurtions.
+require("editor")
+
+-- Load Editor Tools
+
+require("tools")
+
 -- Run Late Hook
 require("user.hook.late_loading")
 early_loading.init()
