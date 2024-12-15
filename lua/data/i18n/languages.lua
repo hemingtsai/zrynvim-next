@@ -1,0 +1,1 @@
+zrynvim_next_languages = {"en_US", "zh_CN"}
