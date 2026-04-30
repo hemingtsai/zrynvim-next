@@ -1,7 +1,6 @@
 -- lua/code/plugins/cmp.lua
 return {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
         "L3MON4D3/LuaSnip",
@@ -11,6 +10,7 @@ return {
         "hrsh7th/cmp-path",
     },
     config = function()
+        print("nvim-cmp Config")
         local cmp = require("cmp")
         local luasnip = require("luasnip")
         require("luasnip.loaders.from_vscode").lazy_load()
