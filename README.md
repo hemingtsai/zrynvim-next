@@ -1,2 +1,2 @@
-# zrynvim-next
+# Zrynvim Next
 The Next Gen of Zry Nvim
