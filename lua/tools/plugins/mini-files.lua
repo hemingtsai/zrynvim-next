@@ -1,26 +1,16 @@
+-- lua/tools/plugins/mini_files.lua
 return {
     "nvim-mini/mini.files",
     version = "*",
+    -- 使用 keys 字段确保快捷键在插件加载前即注册
+    keys = {
+        { "<leader>e", function() require("mini.files").open(vim.api.nvim_buf_get_name(0)) end, desc = "Open mini.files in current file's directory" },
+        { "<leader>E", function() require("mini.files").browse() end, desc = "Browse current working directory" },
+    },
     config = function()
-        local mini_files = require("mini.files")
-        
-        -- 插件配置
-        mini_files.setup({
-            windows = {
-                preview = true,   -- 预览文件内容
-                width = 40,       -- 窗口宽度
-            },
-            mappings = {
-                close = "<ESC>",  -- 关闭窗口
-                go_in = "l",      -- 进入目录或打开文件
-                go_out = "h",     -- 返回上级目录
-            },
+        require("mini.files").setup({
+            windows = { preview = true, width = 40 },
+            mappings = { close = "<ESC>", go_in = "l", go_out = "h" },
         })
-
-        vim.keymap.set("n", "<leader>e", function()
-            mini_files.open(vim.api.nvim_buf_get_name(0))
-        end, { desc = "Open mini.files in current file's directory" })
-
-        vim.keymap.set("n", "<leader>E", mini_files.browse, { desc = "Browse current working directory" })
     end,
 }

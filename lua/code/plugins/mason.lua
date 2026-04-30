@@ -6,15 +6,12 @@ return {
     config = function()
         require("mason").setup({
             ensure_installed = {
-                -- 列出你想通过 Mason 安装的 LSP（不要包括 clangd）
-                "typescript-language-server",   -- tsserver
+                "typescript-language-server",
                 "tailwindcss-language-server",
                 "lua-language-server",
-                -- 可以继续添加
+                -- 你可以添加其他工具：stylua, prettier, clang-format 等
             },
-            registries = { "github:mason-org/mason-registry" },
             PATH = "prepend",
         })
     end,
 }
-

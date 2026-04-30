@@ -1,18 +1,19 @@
+-- lua/code/plugins/cmp.lua
 return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
-        "hrsh7th/cmp-nvim-lsp",       -- LSP 来源
-        "L3MON4D3/LuaSnip",           -- 代码片段引擎
-        "rafamadriz/friendly-snippets", -- 预置代码片段
-        "saadparwaiz1/cmp_luasnip",   -- 代码片段来源
-        "hrsh7th/cmp-buffer",         -- 当前缓冲区内容
-        "hrsh7th/cmp-path",           -- 文件路径
+        "hrsh7th/cmp-nvim-lsp",
+        "L3MON4D3/LuaSnip",
+        "rafamadriz/friendly-snippets",
+        "saadparwaiz1/cmp_luasnip",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
     },
     config = function()
         local cmp = require("cmp")
         local luasnip = require("luasnip")
-        require("luasnip.loaders.from_vscode").lazy_load() -- 加载 friendly-snippets
+        require("luasnip.loaders.from_vscode").lazy_load()
 
         vim.opt.completeopt = "menu,menuone,preview,noselect"
 
@@ -39,20 +40,13 @@ return {
                 ["<CR>"] = cmp.mapping.confirm({ select = true }),
             }),
             sources = cmp.config.sources({
-                { name = "nvim_lsp" },   -- LSP 补全
-                { name = "luasnip" },    -- 代码片段
-                { name = "buffer" },     -- 缓冲区单词
-                { name = "path" },       -- 文件路径
+                { name = "nvim_lsp" },
+                { name = "luasnip" },
+                { name = "buffer" },
+                { name = "path" },
             }),
-            formatting = {
-                format = function(entry, vim_item)
-                    -- 可以添加自定义格式，比如设置符号图标
-                    return vim_item
-                end,
-            },
         })
 
-        -- 手动触发补全快捷键
         vim.keymap.set("i", "<C-Space>", cmp.complete, { desc = "Force completion" })
     end,
 }
