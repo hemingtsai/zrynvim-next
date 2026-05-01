@@ -7,4 +7,4 @@ require("core.keymaps")
 require("core.autocmds")
 
 -- 2. 动态加载所有原生配置（LSP、诊断等）和插件
-require("loader").setup()
+require("loader")
