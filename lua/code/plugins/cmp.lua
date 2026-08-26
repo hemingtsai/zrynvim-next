@@ -10,12 +10,9 @@ return {
         "hrsh7th/cmp-path",
     },
     config = function()
-        print("nvim-cmp Config")
         local cmp = require("cmp")
         local luasnip = require("luasnip")
         require("luasnip.loaders.from_vscode").lazy_load()
-
-        vim.opt.completeopt = "menu,menuone,preview,noselect"
 
         cmp.setup({
             mapping = cmp.mapping.preset.insert({
