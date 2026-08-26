@@ -25,7 +25,7 @@ local function setup_plugins()
             { import = "code.plugins" },
             { import = "tools.plugins" },
         },
-        install = { colorscheme = { "habamax" } },
+        install = { colorscheme = { "catppuccin" } },
         checker = { enabled = true },
     })
 end
